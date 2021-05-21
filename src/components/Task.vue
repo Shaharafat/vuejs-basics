@@ -1,5 +1,8 @@
 <template>
-  <div :class="[task.completed ? 'reminder' : '', 'task']">
+  <div
+    @dblclick="$emit('toggle-reminder', task.id)"
+    :class="[task.completed ? 'reminder' : '', 'task']"
+  >
     <h3>
       {{ task.title }}
       <i @click="onDelete(task.id)" class="fas fa-times"></i>
